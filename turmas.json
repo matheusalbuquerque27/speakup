@@ -1,0 +1,12 @@
+{
+  "seed": {
+    "code": "seed01",
+    "name": "Seed - Lesson 01",
+    "description": "Greetings & Introductions"
+  },
+  "root": {
+    "code": "root02",
+    "name": "Root - Lesson 01",
+    "description": "Basic Conversations"
+  }
+}

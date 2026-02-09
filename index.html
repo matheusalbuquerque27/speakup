@@ -297,8 +297,25 @@
         </header>
 
         <div class="content">
+            <!-- Tela de Seleção de Nível -->
+            <div id="level-screen">
+                <h2 style="text-align: center; color: #333; margin-bottom: 30px;">
+                    Selecione seu Nível
+                </h2>
+                <div class="week-menu">
+                    <button class="day-button" onclick="selectLevel('seed')" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                        <span class="day-name">🌱 Seed</span>
+                        <span class="day-info">Iniciante</span>
+                    </button>
+                    <button class="day-button" onclick="selectLevel('root')" style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);">
+                        <span class="day-name">🌳 Root</span>
+                        <span class="day-info">Intermediário</span>
+                    </button>
+                </div>
+            </div>
+
             <!-- Tela do Menu -->
-            <div id="menu-screen">
+            <div id="menu-screen" class="hidden">
                 <h2 style="text-align: center; color: #333; margin-bottom: 20px;">
                     Escolha o dia da semana
                 </h2>

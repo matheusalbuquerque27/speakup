@@ -5,6 +5,8 @@ let currentDay = '';
 let currentExercises = [];
 let userAnswers = {};
 let originalMenuHTML = ''; // Armazenar HTML original do menu
+let currentLevel = ''; // Nível atual (seed ou root)
+let turmasCodes = {}; // Códigos das turmas
 
 // URL da API - VOCÊ DEVE SUBSTITUIR PELA SUA API
 const API_URL = 'https://script.google.com/macros/s/AKfycbzaWH3Z7zyfSTVtyTlNKmJvCCNMWTpD379nQ2EJ6hEef8elI1HWr9jOjjufJ-_x_ibE/exec';
@@ -17,6 +19,90 @@ const dayNames = {
     'thursday': 'Quinta-feira',
     'friday': 'Sexta-feira'
 };
+
+// Carregar códigos das turmas
+async function loadTurmasCodes() {
+    try {
+        const paths = ['./turmas.json', 'turmas.json', '/speedup/turmas.json'];
+        
+        for (const path of paths) {
+            try {
+                const response = await fetch(path);
+                if (response.ok) {
+                    turmasCodes = await response.json();
+                    console.log('✅ Códigos das turmas carregados:', Object.keys(turmasCodes));
+                    return turmasCodes;
+                }
+            } catch (e) {
+                continue;
+            }
+        }
+        
+        console.error('❌ Não foi possível carregar turmas.json');
+        return null;
+    } catch (error) {
+        console.error('Erro ao carregar códigos:', error);
+        return null;
+    }
+}
+
+// Selecionar nível (Seed ou Root)
+async function selectLevel(level) {
+    console.log(`🎯 Nível selecionado: ${level}`);
+    
+    // Carregar códigos se ainda não carregou
+    if (Object.keys(turmasCodes).length === 0) {
+        await loadTurmasCodes();
+    }
+    
+    // Verificar se o nível existe
+    if (!turmasCodes[level]) {
+        alert('❌ Nível não encontrado!');
+        return;
+    }
+    
+    // Solicitar código da turma
+    const codigo = prompt(`🔐 Digite o código da turma ${level.toUpperCase()}:`);
+    
+    if (!codigo) {
+        return; // Usuário cancelou
+    }
+    
+    // Validar código
+    if (codigo.toLowerCase().trim() !== turmasCodes[level].code) {
+        alert('❌ Código incorreto! Tente novamente.');
+        return;
+    }
+    
+    // Código correto! Avançar para menu
+    currentLevel = level;
+    console.log(`✅ Acesso autorizado ao nível: ${turmasCodes[level].name}`);
+    
+    // Atualizar título do header
+    const headerSubtitle = document.querySelector('header p');
+    if (headerSubtitle) {
+        headerSubtitle.textContent = `${turmasCodes[level].name}: ${turmasCodes[level].description}`;
+    }
+    
+    // Esconder tela de nível e mostrar menu
+    const levelScreen = document.getElementById('level-screen');
+    const menuScreen = document.getElementById('menu-screen');
+    
+    if (levelScreen) {
+        levelScreen.style.display = 'none';
+        levelScreen.classList.add('hidden');
+    }
+    
+    if (menuScreen) {
+        menuScreen.style.display = 'block';
+        menuScreen.classList.remove('hidden');
+        
+        // Salvar HTML original do menu
+        if (!originalMenuHTML) {
+            originalMenuHTML = menuScreen.innerHTML;
+        }
+    }
+}
 
 // Carregar exercícios do JSON
 async function loadExercises() {
@@ -438,6 +524,9 @@ document.addEventListener('DOMContentLoaded', () => {
         exerciseScreen: !!exerciseScreen
     });
     
+    // Carregar códigos das turmas
+    loadTurmasCodes();
+    
     // Testar carregamento do JSON
     console.log('🧪 Testando carregamento do JSON...');
     fetch('./exercises.json')
@@ -456,6 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Disponibilizar funções globalmente (para garantir)
+window.selectLevel = selectLevel;
 window.loadDay = loadDay;
 window.backToMenu = backToMenu;
 window.submitExercises = submitExercises;
