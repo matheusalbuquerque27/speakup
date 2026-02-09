@@ -20,22 +20,62 @@ const dayNames = {
 // Carregar exercícios do JSON
 async function loadExercises() {
     try {
-        const response = await fetch('exercises.json');
-        const data = await response.json();
-        return data;
+        // Tentar diferentes caminhos para compatibilidade com GitHub Pages
+        const paths = [
+            './exercises.json',
+            'exercises.json',
+            '/speedup/exercises.json'
+        ];
+        
+        let data = null;
+        let lastError = null;
+        
+        for (const path of paths) {
+            try {
+                const response = await fetch(path);
+                if (response.ok) {
+                    data = await response.json();
+                    console.log('Exercícios carregados de:', path);
+                    return data;
+                }
+            } catch (error) {
+                lastError = error;
+                continue;
+            }
+        }
+        
+        throw lastError || new Error('Arquivo exercises.json não encontrado');
     } catch (error) {
         console.error('Erro ao carregar exercícios:', error);
+        alert('❌ Erro ao carregar exercícios!\n\nVerifique se o arquivo exercises.json está na mesma pasta.\n\nErro: ' + error.message);
         return null;
     }
 }
 
 // Carregar exercícios do dia
 async function loadDay(day) {
+    // Mostrar loading
+    const menuScreen = document.getElementById('menu-screen');
+    const originalContent = menuScreen.innerHTML;
+    menuScreen.innerHTML = `
+        <div style="text-align: center; padding: 60px 20px;">
+            <div style="font-size: 3em; margin-bottom: 20px;">⏳</div>
+            <h2 style="color: #333;">Carregando exercícios...</h2>
+            <p style="color: #666;">Por favor, aguarde</p>
+        </div>
+    `;
+    
     currentDay = day;
     const allExercises = await loadExercises();
     
-    if (!allExercises || !allExercises[day]) {
-        alert('Erro ao carregar exercícios do dia!');
+    if (!allExercises) {
+        menuScreen.innerHTML = originalContent;
+        return; // Erro já foi mostrado em loadExercises
+    }
+    
+    if (!allExercises[day]) {
+        menuScreen.innerHTML = originalContent;
+        alert('❌ Exercícios do dia "' + dayNames[day] + '" não encontrados!');
         return;
     }
 
