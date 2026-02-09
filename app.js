@@ -107,11 +107,14 @@ async function selectLevel(level) {
 // Carregar exercícios do JSON
 async function loadExercises() {
     try {
+        // Determinar arquivo baseado no nível
+        const exerciseFile = currentLevel === 'root' ? 'exercises-root.json' : 'exercises.json';
+        
         // Tentar diferentes caminhos para compatibilidade com GitHub Pages
         const paths = [
-            './exercises.json',
-            'exercises.json',
-            '/speedup/exercises.json'
+            `./${exerciseFile}`,
+            exerciseFile,
+            `/speedup/${exerciseFile}`
         ];
         
         let data = null;
