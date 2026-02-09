@@ -58,11 +58,7 @@ const API_URL = 'https://sua-api.com/exercises'; // Altere aqui
 
 ### 2. Executar o Sistema
 
-**Simplesmente abra o arquivo `index.html` em um navegador web moderno.**
-
-✅ **Não precisa de servidor local!** Os exercícios estão embutidos no código.
-
-> 💡 **Nota:** Os exercícios foram embutidos diretamente no `app.js` para evitar problemas com o protocolo `file://`. Veja [SOLUCAO-FETCH.md](SOLUCAO-FETCH.md) para detalhes.
+Abra o arquivo `index.html` em um navegador web moderno.
 
 ### 3. Realizar Exercícios
 
@@ -189,10 +185,8 @@ O sistema envia os dados no seguinte formato:
 ## 🐛 Solução de Problemas
 
 ### Exercícios não carregam
-- ✅ **Resolvido!** Os exercícios agora estão embutidos no `app.js`
-- Não é mais necessário servidor local
-- Veja [SOLUCAO-FETCH.md](SOLUCAO-FETCH.md) para detalhes
-- Se ainda tiver problemas, limpe o cache do navegador (Ctrl+Shift+Delete)
+- Verifique se `exercises.json` está na mesma pasta
+- Abra o console do navegador (F12) para ver erros
 
 ### Erro ao enviar
 - Verifique a URL da API em `app.js`
