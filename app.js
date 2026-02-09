@@ -102,8 +102,12 @@ async function loadDay(day) {
         console.log('Menu screen classes antes:', menuScreen.className);
         console.log('Exercise screen classes antes:', exerciseScreen.className);
         
+        // Esconder menu e mostrar exercícios
         menuScreen.classList.add('hidden');
+        menuScreen.style.display = 'none';
+        
         exerciseScreen.classList.remove('hidden');
+        exerciseScreen.style.display = 'block';
         
         console.log('Menu screen classes depois:', menuScreen.className);
         console.log('Exercise screen classes depois:', exerciseScreen.className);
@@ -394,8 +398,14 @@ function backToMenu() {
         if (!confirm) return;
     }
 
-    document.getElementById('exercise-screen').classList.add('hidden');
-    document.getElementById('menu-screen').classList.remove('hidden');
+    const exerciseScreen = document.getElementById('exercise-screen');
+    const menuScreen = document.getElementById('menu-screen');
+    
+    exerciseScreen.classList.add('hidden');
+    exerciseScreen.style.display = 'none';
+    
+    menuScreen.classList.remove('hidden');
+    menuScreen.style.display = 'block';
     
     // Limpar dados
     currentDay = '';
