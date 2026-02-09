@@ -111,6 +111,7 @@ async function loadDay(day) {
     } else {
         console.log('✅ Exercícios carregados (modo teste - sem interface)');
     }
+}
 
 // Renderizar exercícios
 function renderExercises() {
