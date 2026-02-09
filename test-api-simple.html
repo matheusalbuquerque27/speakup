@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste API - SpeakUp</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Teste de API - SpeakUp</h1>
+        <p>Teste diferentes métodos de envio para o Google Apps Script</p>
+        
+        <button onclick="testNoHeaders()">1️⃣ Teste SEM Headers (no-cors)</button>
+        <button onclick="testWithTextPlain()">2️⃣ Teste COM text/plain</button>
+        <button onclick="testWithFormData()">3️⃣ Teste COM FormData</button>
+        <button onclick="testGET()">4️⃣ Teste GET (verificar se API responde)</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const API_URL = 'https://script.google.com/macros/s/AKfycbzR-sxik9fePT8kIhpjRkS70cQafYjVaXyH73mdUkfLlY7Hcbi5A4QQpWonUU7WdWGG/exec';
+        
+        const testData = {
+            timestamp: new Date().toISOString(),
+            student: "Teste API",
+            worksheetId: "test_monday_lesson01_seed",
+            total: 2,
+            correct: 1,
+            payload: [
+                {
+                    exerciseNumber: 1,
+                    type: "multiple-choice",
+                    question: "Teste 1",
+                    correctAnswer: "A",
+                    userAnswer: "A",
+                    isCorrect: true
+                },
+                {
+                    exerciseNumber: 2,
+                    type: "fill-blank",
+                    question: "Teste 2",
+                    correctAnswer: "test",
+                    userAnswer: "wrong",
+                    isCorrect: false
+                }
+            ]
+        };
+
+        function showResult(message, type = 'info') {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = type;
+            resultDiv.textContent = message;
+        }
+
+        async function testNoHeaders() {
+            showResult('🔄 Testando envio SEM headers (no-cors)...', 'info');
+            
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(testData)
+                });
+                
+                showResult(`✅ Enviado com sucesso (no-cors)!\n\nNota: Com no-cors, não conseguimos ver a resposta, mas os dados foram enviados.\n\nVerifique no Google Sheets se os dados chegaram.\n\nStatus: ${response.status}\nType: ${response.type}`, 'success');
+                
+            } catch (error) {
+                showResult(`❌ Erro ao enviar:\n${error.message}\n\nStack: ${error.stack}`, 'error');
+            }
+        }
+
+        async function testWithTextPlain() {
+            showResult('🔄 Testando envio COM Content-Type: text/plain...', 'info');
+            
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: JSON.stringify(testData)
+                });
+                
+                const text = await response.text();
+                showResult(`✅ Resposta recebida!\n\nStatus: ${response.status}\n\nResposta:\n${text}`, 'success');
+                
+            } catch (error) {
+                showResult(`❌ Erro ao enviar:\n${error.message}\n\nStack: ${error.stack}`, 'error');
+            }
+        }
+
+        async function testWithFormData() {
+            showResult('🔄 Testando envio COM FormData...', 'info');
+            
+            try {
+                const formData = new FormData();
+                formData.append('data', JSON.stringify(testData));
+                
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const text = await response.text();
+                showResult(`✅ Resposta recebida!\n\nStatus: ${response.status}\n\nResposta:\n${text}`, 'success');
+                
+            } catch (error) {
+                showResult(`❌ Erro ao enviar:\n${error.message}\n\nStack: ${error.stack}`, 'error');
+            }
+        }
+
+        async function testGET() {
+            showResult('🔄 Testando requisição GET para verificar se API responde...', 'info');
+            
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'GET'
+                });
+                
+                const text = await response.text();
+                showResult(`✅ API respondeu!\n\nStatus: ${response.status}\n\nResposta:\n${text}`, 'success');
+                
+            } catch (error) {
+                showResult(`❌ Erro ao conectar:\n${error.message}\n\nStack: ${error.stack}`, 'error');
+            }
+        }
+
+        // Mostrar dados que serão enviados
+        window.addEventListener('DOMContentLoaded', () => {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = 'info';
+            resultDiv.innerHTML = `<strong>📦 Dados que serão enviados:</strong>\n<pre>${JSON.stringify(testData, null, 2)}</pre>`;
+        });
+    </script>
+</body>
+</html>
