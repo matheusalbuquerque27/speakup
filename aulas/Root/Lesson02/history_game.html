@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Time Machine Game - Simple Past</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+
+        .game-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .board-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .house {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border: 3px solid #fff;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #333;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .house:hover {
+            transform: scale(1.05);
+        }
+
+        .house.start {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            font-size: 1em;
+        }
+
+        .house.finish {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            font-size: 1.1em;
+        }
+
+        .house-number {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .players-on-house {
+            display: flex;
+            gap: 3px;
+            flex-wrap: wrap;
+            position: absolute;
+            bottom: 5px;
+        }
+
+        .player-token {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .control-panel {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .year-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .year-display h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .year-number {
+            font-size: 4em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+            color: white;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .players-list {
+            margin-top: 20px;
+        }
+
+        .player-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .player-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .player-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .player-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-small {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .btn-move-2 {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-move-1 {
+            background: #FF9800;
+            color: white;
+        }
+
+        .btn-small:hover {
+            transform: scale(1.05);
+        }
+
+        .verbs-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .verbs-section h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .verbs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .verb-item {
+            padding: 5px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .winner-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .winner-content {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            animation: bounce 0.5s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .winner-content h2 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .setup-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .setup-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .player-setup {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .player-setup input {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .player-setup button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .current-turn {
+            border: 3px solid #667eea;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .instructions {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ffc107;
+        }
+
+        .instructions h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+            color: #856404;
+        }
+
+        .instructions li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 HISTORY TIME MACHINE 🎲</h1>
+        <p class="subtitle">Simple Past Practice Game</p>
+
+        <div class="instructions">
+            <h3>📜 How to Play:</h3>
+            <ul>
+                <li><strong>Draw Year:</strong> Click the button to get a random year (0-2025 AD)</li>
+                <li><strong>Student speaks:</strong> They must describe an event from that year in English using Simple Past</li>
+                <li><strong>Correct English:</strong> Click "+2 Houses" - <strong>Wrong/Can't speak:</strong> Click "+1 House"</li>
+                <li><strong>First to House 10 wins!</strong> 🏆</li>
+            </ul>
+        </div>
+
+        <div class="setup-section">
+            <h3>👥 Setup Players (2-4):</h3>
+            <div class="player-setup">
+                <input type="text" id="playerNameInput" placeholder="Player name" maxlength="15">
+                <button onclick="addPlayer()">Add Player</button>
+            </div>
+            <button class="btn btn-warning" onclick="resetGame()" style="width: auto; padding: 10px 20px; margin-top: 10px;">🔄 Reset Game</button>
+        </div>
+
+        <div class="game-container">
+            <div class="board-section">
+                <h2 style="color: #667eea; margin-bottom: 15px;">🎯 Game Board</h2>
+                <div class="board" id="gameBoard"></div>
+            </div>
+
+            <div class="control-panel">
+                <div class="year-display">
+                    <h2>📅 Year</h2>
+                    <div class="year-number" id="yearDisplay">?</div>
+                    <p style="margin-top: 10px; font-size: 0.9em;">AD (Anno Domini)</p>
+                </div>
+
+                <button class="btn btn-primary" onclick="drawYear()">🎲 Draw Random Year</button>
+
+                <div class="players-list" id="playersList"></div>
+
+                <div class="verbs-section">
+                    <h3>💡 Simple Past Verbs:</h3>
+                    <div class="verbs-grid">
+                        <div class="verb-item"><strong>go</strong> → went</div>
+                        <div class="verb-item"><strong>see</strong> → saw</div>
+                        <div class="verb-item"><strong>make</strong> → made</div>
+                        <div class="verb-item"><strong>come</strong> → came</div>
+                        <div class="verb-item"><strong>take</strong> → took</div>
+                        <div class="verb-item"><strong>have</strong> → had</div>
+                        <div class="verb-item"><strong>write</strong> → wrote</div>
+                        <div class="verb-item"><strong>find</strong> → found</div>
+                        <div class="verb-item"><strong>begin</strong> → began</div>
+                        <div class="verb-item"><strong>win</strong> → won</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="winner-modal" id="winnerModal">
+        <div class="winner-content">
+            <h2>🏆 WINNER! 🏆</h2>
+            <div style="font-size: 2em; margin: 20px 0;" id="winnerName"></div>
+            <p style="font-size: 1.2em; color: #666;">Congratulations, History Master!</p>
+            <button class="btn btn-primary" onclick="closeWinnerModal()" style="margin-top: 20px; width: auto; padding: 15px 40px;">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const PLAYER_COLORS = ['#FF6B6B', '#4ECDC4', '#FFD93D', '#6BCB77'];
+        const MAX_PLAYERS = 4;
+        let players = [];
+        let currentPlayerIndex = 0;
+
+        function initBoard() {
+            const board = document.getElementById('gameBoard');
+            board.innerHTML = '';
+
+            // START
+            const startHouse = document.createElement('div');
+            startHouse.className = 'house start';
+            startHouse.innerHTML = '<div>START</div><div class="players-on-house" id="house-start"></div>';
+            board.appendChild(startHouse);
+
+            // Houses 1-5
+            for (let i = 1; i <= 5; i++) {
+                const house = document.createElement('div');
+                house.className = 'house';
+                house.innerHTML = `<div class="house-number">${i}</div><div class="players-on-house" id="house-${i}"></div>`;
+                board.appendChild(house);
+            }
+
+            // Houses 6-9 (reverse)
+            for (let i = 9; i >= 6; i--) {
+                const house = document.createElement('div');
+                house.className = 'house';
+                house.innerHTML = `<div class="house-number">${i}</div><div class="players-on-house" id="house-${i}"></div>`;
+                board.appendChild(house);
+            }
+
+            // FINISH (House 10)
+            const finishHouse = document.createElement('div');
+            finishHouse.className = 'house finish';
+            finishHouse.innerHTML = '<div class="house-number">10</div><div>🏆 FINISH</div><div class="players-on-house" id="house-10"></div>';
+            board.appendChild(finishHouse);
+
+            updateBoard();
+        }
+
+        function addPlayer() {
+            const input = document.getElementById('playerNameInput');
+            const name = input.value.trim();
+
+            if (!name) {
+                alert('Please enter a player name!');
+                return;
+            }
+
+            if (players.length >= MAX_PLAYERS) {
+                alert(`Maximum ${MAX_PLAYERS} players allowed!`);
+                return;
+            }
+
+            const player = {
+                name: name,
+                position: 0,
+                color: PLAYER_COLORS[players.length]
+            };
+
+            players.push(player);
+            input.value = '';
+            
+            updatePlayersList();
+            updateBoard();
+        }
+
+        function updatePlayersList() {
+            const list = document.getElementById('playersList');
+            list.innerHTML = '';
+
+            players.forEach((player, index) => {
+                const item = document.createElement('div');
+                item.className = 'player-item';
+                if (index === currentPlayerIndex) {
+                    item.classList.add('current-turn');
+                }
+
+                item.innerHTML = `
+                    <div class="player-info">
+                        <div class="player-color" style="background: ${player.color}"></div>
+                        <div>
+                            ${player.name}
+                            ${index === currentPlayerIndex ? '👈 TURN' : ''}
+                            <div style="font-size: 0.8em; color: #666;">House: ${player.position}</div>
+                        </div>
+                    </div>
+                    <div class="player-controls">
+                        <button class="btn-small btn-move-2" onclick="movePlayer(${index}, 2)">+2 🎯</button>
+                        <button class="btn-small btn-move-1" onclick="movePlayer(${index}, 1)">+1</button>
+                    </div>
+                `;
+
+                list.appendChild(item);
+            });
+        }
+
+        function updateBoard() {
+            // Clear all houses
+            for (let i = 0; i <= 10; i++) {
+                const houseId = i === 0 ? 'house-start' : `house-${i}`;
+                const house = document.getElementById(houseId);
+                if (house) house.innerHTML = '';
+            }
+
+            // Place players
+            players.forEach(player => {
+                const houseId = player.position === 0 ? 'house-start' : `house-${player.position}`;
+                const house = document.getElementById(houseId);
+                if (house) {
+                    const token = document.createElement('div');
+                    token.className = 'player-token';
+                    token.style.background = player.color;
+                    house.appendChild(token);
+                }
+            });
+        }
+
+        function movePlayer(playerIndex, houses) {
+            if (players.length === 0) {
+                alert('Please add players first!');
+                return;
+            }
+
+            const player = players[playerIndex];
+            player.position += houses;
+
+            if (player.position > 10) {
+                player.position = 10;
+            }
+
+            if (player.position === 10) {
+                showWinner(player);
+            }
+
+            updateBoard();
+            updatePlayersList();
+
+            // Next player's turn
+            currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+            updatePlayersList();
+        }
+
+        function drawYear() {
+            const year = Math.floor(Math.random() * 2026); // 0 to 2025
+            document.getElementById('yearDisplay').textContent = year;
+        }
+
+        function showWinner(player) {
+            const modal = document.getElementById('winnerModal');
+            const winnerName = document.getElementById('winnerName');
+            
+            winnerName.innerHTML = `<div class="player-color" style="background: ${player.color}; display: inline-block; width: 50px; height: 50px; margin-right: 20px; vertical-align: middle;"></div>${player.name}`;
+            modal.style.display = 'flex';
+        }
+
+        function closeWinnerModal() {
+            document.getElementById('winnerModal').style.display = 'none';
+        }
+
+        function resetGame() {
+            if (confirm('Are you sure you want to reset the game?')) {
+                players = [];
+                currentPlayerIndex = 0;
+                document.getElementById('yearDisplay').textContent = '?';
+                updatePlayersList();
+                updateBoard();
+            }
+        }
+
+        // Initialize
+        initBoard();
+    </script>
+</body>
+</html>

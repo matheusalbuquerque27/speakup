@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpeedUp - Exercícios de Fixação</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -23,7 +25,7 @@
             max-width: 900px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
+            border-radius: 8px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
         }
@@ -61,23 +63,26 @@
         .day-button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border: none;
+            border: 3px solid rgba(0,0,0,0.15);
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 5px;
             font-size: 1.2em;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .day-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+            border-color: rgba(0,0,0,0.25);
         }
 
         .day-button:active {
-            transform: translateY(-2px);
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3), inset 0 1px 3px rgba(0,0,0,0.3);
         }
 
         .day-button .day-name {
@@ -100,11 +105,12 @@
         .exercise-header {
             background: #f8f9fa;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 5px;
             margin-bottom: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border: 2px solid #e9ecef;
         }
 
         .exercise-counter {
@@ -116,29 +122,32 @@
         .back-button {
             background: #6c757d;
             color: white;
-            border: none;
+            border: 2px solid rgba(0,0,0,0.15);
             padding: 10px 20px;
-            border-radius: 8px;
+            border-radius: 4px;
             cursor: pointer;
             font-size: 1em;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .back-button:hover {
             background: #5a6268;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
         }
 
         .exercise-card {
             background: #f8f9fa;
             padding: 30px;
-            border-radius: 15px;
+            border-radius: 6px;
             margin-bottom: 20px;
             border-left: 5px solid #667eea;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .exercise-card:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .exercise-type {
@@ -146,10 +155,11 @@
             background: #667eea;
             color: white;
             padding: 5px 15px;
-            border-radius: 20px;
+            border-radius: 3px;
             font-size: 0.9em;
             margin-bottom: 15px;
             font-weight: bold;
+            border: 2px solid rgba(0,0,0,0.1);
         }
 
         .exercise-question {
@@ -163,7 +173,7 @@
             width: 100%;
             padding: 15px;
             border: 2px solid #ddd;
-            border-radius: 10px;
+            border-radius: 5px;
             font-size: 1em;
             transition: all 0.3s ease;
             font-family: inherit;
@@ -185,7 +195,7 @@
             background: white;
             border: 2px solid #ddd;
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 5px;
             text-align: left;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -206,27 +216,29 @@
         .submit-button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border: none;
+            border: 3px solid rgba(0,0,0,0.15);
             padding: 20px 40px;
-            border-radius: 15px;
+            border-radius: 5px;
             font-size: 1.3em;
             font-weight: bold;
             cursor: pointer;
             width: 100%;
             margin-top: 30px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .submit-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
         }
 
         .submit-button:disabled {
             background: #ccc;
             cursor: not-allowed;
             transform: none;
+            border-color: #999;
         }
 
         .progress-bar {
@@ -252,7 +264,7 @@
             background: #d4edda;
             color: #155724;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 5px;
             text-align: center;
             font-size: 1.2em;
             margin-top: 20px;
@@ -263,7 +275,7 @@
             background: #f8d7da;
             color: #721c24;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 5px;
             text-align: center;
             font-size: 1.2em;
             margin-top: 20px;
@@ -284,9 +296,11 @@
         .video-card {
             background: #f8f9fa;
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 6px;
             border-left: 5px solid #f5576c;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border: 2px solid #e9ecef;
+            border-left: 5px solid #f5576c;
         }
 
         .video-title {
@@ -303,8 +317,9 @@
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 5px;
             background: #000;
+            border: 2px solid #ddd;
         }
 
         .video-wrapper iframe {
@@ -313,7 +328,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 10px;
+            border-radius: 5px;
         }
 
         @media (max-width: 600px) {
@@ -339,7 +354,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>🌟 SpeedUp Exercises</h1>
+            <h1><i class="fas fa-graduation-cap"></i> SpeedUp Exercises</h1>
         </header>
 
         <div class="content">
@@ -350,11 +365,11 @@
                 </h2>
                 <div class="week-menu">
                     <button class="day-button" onclick="selectLevel('seed')" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
-                        <span class="day-name">🌱 Seed</span>
+                        <span class="day-name"><i class="fas fa-seedling"></i> Seed</span>
                         <span class="day-info">Iniciante</span>
                     </button>
                     <button class="day-button" onclick="selectLevel('root')" style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);">
-                        <span class="day-name">🌳 Root</span>
+                        <span class="day-name"><i class="fas fa-tree"></i> Root</span>
                         <span class="day-info">Elementar</span>
                     </button>
                 </div>
@@ -367,27 +382,27 @@
                 </h2>
                 <div class="week-menu">
                     <button class="day-button" onclick="loadDay('monday')">
-                        <span class="day-name">Monday</span>
+                        <span class="day-name"><i class="fas fa-calendar-day"></i> Monday</span>
                         <span class="day-info">20 exercises</span>
                     </button>
                     <button class="day-button" onclick="loadDay('tuesday')">
-                        <span class="day-name">Tuesday</span>
+                        <span class="day-name"><i class="fas fa-calendar-day"></i> Tuesday</span>
                         <span class="day-info">20 exercises</span>
                     </button>
                     <button class="day-button" onclick="loadDay('wednesday')">
-                        <span class="day-name">Wednesday</span>
+                        <span class="day-name"><i class="fas fa-calendar-day"></i> Wednesday</span>
                         <span class="day-info">20 exercises</span>
                     </button>
                     <button class="day-button" onclick="loadDay('thursday')">
-                        <span class="day-name">Thursday</span>
+                        <span class="day-name"><i class="fas fa-calendar-day"></i> Thursday</span>
                         <span class="day-info">20 exercises</span>
                     </button>
                     <button class="day-button" onclick="loadDay('friday')">
-                        <span class="day-name">Friday</span>
+                        <span class="day-name"><i class="fas fa-calendar-day"></i> Friday</span>
                         <span class="day-info">20 exercises</span>
                     </button>
                     <button class="day-button" onclick="showVideos()" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <span class="day-name">🎥 Recorded Classes</span>
+                        <span class="day-name"><i class="fas fa-video"></i> Recorded Classes</span>
                         <span class="day-info">Watch the lessons</span>
                     </button>
                 </div>
@@ -396,9 +411,9 @@
             <!-- Tela de Vídeos -->
             <div id="videos-screen" class="hidden">
                 <div class="exercise-header">
-                    <button class="back-button" onclick="backToMenuFromVideos()">← Voltar ao Menu</button>
+                    <button class="back-button" onclick="backToMenuFromVideos()"><i class="fas fa-arrow-left"></i> Voltar ao Menu</button>
                     <div class="exercise-counter">
-                        <span>🎥 Aulas Gravadas</span>
+                        <span><i class="fas fa-video"></i> Aulas Gravadas</span>
                     </div>
                 </div>
 
@@ -410,7 +425,7 @@
             <!-- Tela de Exercícios -->
             <div id="exercise-screen">
                 <div class="exercise-header">
-                    <button class="back-button" onclick="backToMenu()">← Voltar ao Menu</button>
+                    <button class="back-button" onclick="backToMenu()"><i class="fas fa-arrow-left"></i> Voltar ao Menu</button>
                     <div class="exercise-counter">
                         <span id="current-day-name"></span> | 
                         Exercício <span id="current-exercise">0</span> de <span id="total-exercises">20</span>
@@ -424,7 +439,7 @@
                 <div id="exercises-container"></div>
 
                 <button class="submit-button" id="submit-button" onclick="submitExercises()">
-                    📤 Enviar Respostas
+                    <i class="fas fa-paper-plane"></i> Enviar Respostas
                 </button>
 
                 <div id="message-container"></div>

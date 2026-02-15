@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Bingo Game - Seed Lesson 02</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .instructions {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .instructions h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        .control-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .drawn-number {
+            text-align: center;
+            font-size: 5em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 20px 0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .pending-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ed8936;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.3em;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn-draw {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-reset {
+            background: #f56565;
+            color: white;
+        }
+
+        .btn-confirm {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-skip {
+            background: #ed8936;
+            color: white;
+        }
+
+        .confirmation-buttons {
+            display: none;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .confirmation-buttons.active {
+            display: flex;
+        }
+
+        .btn-new-cards {
+            background: #4299e1;
+            color: white;
+        }
+
+        .drawn-numbers-list {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+
+        .drawn-numbers-list h3 {
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+
+        .number-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .bingo-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .winner-badge {
+            background: gold;
+            color: #2d3748;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: 10px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .bingo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .bingo-cell {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #edf2f7;
+            border-radius: 8px;
+            font-size: 1.8em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .bingo-cell:hover {
+            background: #e2e8f0;
+            transform: scale(1.05);
+        }
+
+        .bingo-cell.marked {
+            background: #48bb78;
+            color: white;
+            border-color: #2f855a;
+        }
+
+        .card-progress {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Number Bingo Game 🎯</h1>
+            <p>Seed - Lesson 02: Numbers Practice (1-50)</p>
+        </div>
+
+        <div class="instructions">
+            <h2>📋 Instruções do Jogo (Para o Professor)</h2>
+            <ul>
+                <li><strong>Objetivo:</strong> Praticar números de 1 a 50 em inglês com os alunos</li>
+                <li><strong>Como jogar:</strong>
+                    <ol style="margin-left: 20px; margin-top: 10px;">
+                        <li>Compartilhe sua tela com os alunos</li>
+                        <li>Cada aluno tem sua cartela (Regina, Athos, Sara, Manu)</li>
+                        <li>Clique em "Draw Number" para sortear um número</li>
+                        <li>Pergunte ao aluno que tem o número se ele sabe dizê-lo em inglês</li>
+                        <li>Se souber: clique "✓ Student Knows" para confirmar e marcar o número</li>
+                        <li>Se não souber: clique "✗ Draw Another" para invalidar e sortear outro número</li>
+                        <li>O primeiro aluno a completar 3 números em linha (horizontal, vertical ou diagonal) ganha!</li>
+                        <li>Use "Reset Game" para limpar as marcações ou "New Cards" para gerar novas cartelas</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+        <div class="control-panel">
+            <div class="drawn-number" id="drawnNumber">
+                Click "Draw Number" to start!
+            </div>
+            
+            <div class="confirmation-buttons" id="confirmationButtons">
+                <button class="btn-confirm" onclick="confirmNumber()">✓ Student Knows</button>
+                <button class="btn-skip" onclick="skipNumber()">✗ Draw Another</button>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-draw" id="drawButton" onclick="drawNumber()">🎲 Draw Number</button>
+                <button class="btn-reset" onclick="resetGame()">🔄 Reset Game</button>
+                <button class="btn-new-cards" onclick="generateAllCards()">🆕 New Cards</button>
+            </div>
+
+            <div class="drawn-numbers-list">
+                <h3>Confirmed Numbers (<span id="drawnCount">0</span>):</h3>
+                <div id="drawnList"></div>
+            </div>
+        </div>
+
+        <div class="cards-container" id="cardsContainer">
+            <!-- Cards will be generated here -->
+        </div>
+    </div>
+
+    <script>
+        let availableNumbers = [];
+        let drawnNumbers = [];
+        let pendingNumber = null;
+        let invalidatedNumbers = [];
+        let cards = [];
+
+        function initGame() {
+            resetAvailableNumbers();
+            generateAllCards();
+        }
+
+        function resetAvailableNumbers() {
+            availableNumbers = [];
+            for (let i = 1; i <= 50; i++) {
+                availableNumbers.push(i);
+            }
+        }
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        function generateCard(playerName, index) {
+            const numbers = shuffleArray([...Array(50).keys()].map(x => x + 1)).slice(0, 9);
+            return {
+                player: playerName,
+                numbers: numbers,
+                marked: new Array(9).fill(false),
+                index: index
+            };
+        }
+
+        function generateAllCards() {
+            cards = [
+                generateCard('Regina', 0),
+                generateCard('Athos', 1),
+                generateCard('Sara', 2),
+                generateCard('Manu', 3)
+            ];
+            renderCards();
+        }
+
+        function renderCards() {
+            const container = document.getElementById('cardsContainer');
+            container.innerHTML = '';
+
+            cards.forEach((card, cardIndex) => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'bingo-card';
+                
+                const winner = checkWinner(card);
+                const headerHTML = `
+                    <div class="card-header">
+                        ${card.player}
+                        ${winner ? '<span class="winner-badge">🏆 BINGO!</span>' : ''}
+                    </div>
+                `;
+
+                const gridHTML = card.numbers.map((num, idx) => {
+                    const markedClass = card.marked[idx] ? 'marked' : '';
+                    return `<div class="bingo-cell ${markedClass}" onclick="toggleCell(${cardIndex}, ${idx})">${num}</div>`;
+                }).join('');
+
+                const markedCount = card.marked.filter(m => m).length;
+                const progressHTML = `<div class="card-progress">Marked: ${markedCount}/9</div>`;
+
+                cardDiv.innerHTML = headerHTML + '<div class="bingo-grid">' + gridHTML + '</div>' + progressHTML;
+                container.appendChild(cardDiv);
+            });
+        }
+
+        function toggleCell(cardIndex, cellIndex) {
+            const card = cards[cardIndex];
+            const number = card.numbers[cellIndex];
+            
+            // Only allow unmarking (numbers are auto-marked when confirmed)
+            if (drawnNumbers.includes(number)) {
+                card.marked[cellIndex] = !card.marked[cellIndex];
+                renderCards();
+            } else if (pendingNumber === number) {
+                alert(`This number is pending confirmation. Use the buttons above.`);
+            } else {
+                alert(`Number ${number} hasn't been confirmed yet!`);
+            }
+        }
+
+        function checkWinner(card) {
+            // Check rows
+            for (let row = 0; row < 3; row++) {
+                let count = 0;
+                for (let col = 0; col < 3; col++) {
+                    if (card.marked[row * 3 + col]) count++;
+                }
+                if (count === 3) return true;
+            }
+
+            // Check columns
+            for (let col = 0; col < 3; col++) {
+                let count = 0;
+                for (let row = 0; row < 3; row++) {
+                    if (card.marked[row * 3 + col]) count++;
+                }
+                if (count === 3) return true;
+            }
+
+            // Check diagonals
+            let diag1 = 0, diag2 = 0;
+            for (let i = 0; i < 3; i++) {
+                if (card.marked[i * 3 + i]) diag1++;
+                if (card.marked[i * 3 + (2 - i)]) diag2++;
+            }
+            if (diag1 === 3 || diag2 === 3) return true;
+
+            return false;
+        }
+
+        function drawNumber() {
+            if (availableNumbers.length === 0) {
+                alert('All numbers have been drawn! Click "Reset Game" to play again.');
+                return;
+            }
+
+            const randomIndex = Math.floor(Math.random() * availableNumbers.length);
+            const number = availableNumbers[randomIndex];
+            availableNumbers.splice(randomIndex, 1);
+            pendingNumber = number;
+
+            const drawnNumberDiv = document.getElementById('drawnNumber');
+            drawnNumberDiv.innerHTML = `${number}<span class="pending-badge">WAITING</span>`;
+            
+            // Show confirmation buttons and hide draw button
+            document.getElementById('confirmationButtons').classList.add('active');
+            document.getElementById('drawButton').disabled = true;
+            document.getElementById('drawButton').style.opacity = '0.5';
+        }
+
+        function confirmNumber() {
+            if (pendingNumber === null) return;
+
+            drawnNumbers.push(pendingNumber);
+            
+            const drawnNumberDiv = document.getElementById('drawnNumber');
+            drawnNumberDiv.innerHTML = `${pendingNumber} <span style="color: #48bb78; font-size: 0.5em;">✓</span>`;
+            
+            pendingNumber = null;
+            hideConfirmationButtons();
+            updateDrawnList();
+            
+            // Auto-mark the number on cards that have it
+            autoMarkNumber(drawnNumbers[drawnNumbers.length - 1]);
+        }
+
+        function skipNumber() {
+            if (pendingNumber === null) return;
+
+            invalidatedNumbers.push(pendingNumber);
+            pendingNumber = null;
+            
+            document.getElementById('drawnNumber').innerHTML = 'Click "Draw Number" again!';
+            hideConfirmationButtons();
+            
+            // Automatically draw another number
+            setTimeout(() => {
+                drawNumber();
+            }, 1000);
+        }
+
+        function hideConfirmationButtons() {
+            document.getElementById('confirmationButtons').classList.remove('active');
+            document.getElementById('drawButton').disabled = false;
+            document.getElementById('drawButton').style.opacity = '1';
+        }
+
+        function autoMarkNumber(number) {
+            cards.forEach(card => {
+                const index = card.numbers.indexOf(number);
+                if (index !== -1) {
+                    card.marked[index] = true;
+                }
+            });
+            renderCards();
+        }
+
+        function updateDrawnList() {
+            const listDiv = document.getElementById('drawnList');
+            listDiv.innerHTML = drawnNumbers.map(num => 
+                `<span class="number-tag">${num}</span>`
+            ).join('');
+            document.getElementById('drawnCount').textContent = drawnNumbers.length;
+        }
+
+        function resetGame() {
+            if (confirm('Reset the game? This will clear all marked numbers but keep the same cards.')) {
+                cards.forEach(card => {
+                    card.marked = new Array(9).fill(false);
+                });
+                drawnNumbers = [];
+                pendingNumber = null;
+                invalidatedNumbers = [];
+                resetAvailableNumbers();
+                document.getElementById('drawnNumber').innerHTML = 'Click "Draw Number" to start!';
+                hideConfirmationButtons();
+                updateDrawnList();
+                renderCards();
+            }
+        }
+
+        // Initialize the game on load
+        initGame();
+    </script>
+</body>
+</html>
