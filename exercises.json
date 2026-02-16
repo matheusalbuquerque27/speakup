@@ -3,636 +3,636 @@
     {
       "id": 1,
       "type": "multiple-choice",
-      "question": "Como se diz 'Olá' em inglês?",
-      "options": ["Hello", "Goodbye", "Thank you", "Please"],
-      "correctAnswer": "Hello"
+      "question": "Como se pergunta 'Quantos anos você tem?' em inglês?",
+      "options": ["How old are you?", "What's your age?", "How are you?", "How many years?"],
+      "correctAnswer": "How old are you?"
     },
     {
       "id": 2,
       "type": "fill-blank",
-      "question": "Complete: 'Good _____' (Bom dia)",
-      "correctAnswer": "morning"
+      "question": "Complete: 'I am _____ years old' (Eu tenho 25 anos)",
+      "correctAnswer": "25|twenty-five"
     },
     {
       "id": 3,
       "type": "translate",
-      "question": "Traduza para inglês: 'Qual é seu nome?'",
-      "correctAnswer": "what's your name|what is your name"
+      "question": "Traduza para inglês: 'Eu tenho quinze anos'",
+      "correctAnswer": "i am fifteen years old|i'm fifteen years old"
     },
     {
       "id": 4,
       "type": "fill-blank",
-      "question": "Complete: 'I _____ fine' (Estou bem)",
-      "correctAnswer": "am|'m"
+      "question": "Complete: 'She is _____ years old' (Ela tem 30 anos)",
+      "correctAnswer": "30|thirty"
     },
     {
       "id": 5,
       "type": "multiple-choice",
-      "question": "Qual é a tradução de 'Nice to meet you'?",
-      "options": ["Prazer em conhecê-lo", "Como vai?", "Até logo", "Obrigado"],
-      "correctAnswer": "Prazer em conhecê-lo"
+      "question": "Como se diz o número '50' em inglês?",
+      "options": ["Fifty", "Fifteen", "Five", "Forty"],
+      "correctAnswer": "Fifty"
     },
     {
       "id": 6,
       "type": "complete",
-      "question": "Complete com o pronome correto: '_____ am a student' (Eu sou estudante)",
-      "correctAnswer": "i"
+      "question": "Complete: 'How _____ is he?' (Quantos anos ele tem?)",
+      "correctAnswer": "old"
     },
     {
       "id": 7,
       "type": "fill-blank",
-      "question": "Complete: 'She _____ happy' (Ela está feliz)",
-      "correctAnswer": "is|'s"
+      "question": "Complete: 'My brother is _____ years old' (Meu irmão tem 18 anos)",
+      "correctAnswer": "18|eighteen"
     },
     {
       "id": 8,
       "type": "multiple-choice",
-      "question": "Como se despede em inglês à noite?",
-      "options": ["Good night", "Good evening", "Good afternoon", "Good morning"],
-      "correctAnswer": "Good night"
+      "question": "Qual é o número '13' em inglês?",
+      "options": ["Thirteen", "Thirty", "Three", "Threety"],
+      "correctAnswer": "Thirteen"
     },
     {
       "id": 9,
       "type": "translate",
-      "question": "Traduza: 'Meu nome é Maria'",
-      "correctAnswer": "my name is maria"
+      "question": "Traduza: 'Ela tem vinte e um anos'",
+      "correctAnswer": "she is twenty-one years old|she's twenty-one years old"
     },
     {
       "id": 10,
       "type": "fill-blank",
-      "question": "Complete: 'They _____ teachers' (Eles são professores)",
-      "correctAnswer": "are|'re"
+      "question": "Complete: 'They are _____ years old' (Eles têm 40 anos)",
+      "correctAnswer": "40|forty"
     },
     {
       "id": 11,
       "type": "multiple-choice",
-      "question": "Qual pronome usamos para 'Nós'?",
-      "options": ["We", "They", "You", "It"],
-      "correctAnswer": "We"
+      "question": "Como se diz 'jovem' em inglês?",
+      "options": ["Young", "Old", "Age", "Year"],
+      "correctAnswer": "Young"
     },
     {
       "id": 12,
       "type": "complete",
-      "question": "Complete: 'How _____ you?' (Como você está?)",
-      "correctAnswer": "are"
+      "question": "Complete: 'I am _____ old' (Eu tenho anos)",
+      "correctAnswer": "years"
     },
     {
       "id": 13,
       "type": "translate",
-      "question": "Traduza: 'Boa tarde'",
-      "correctAnswer": "good afternoon"
+      "question": "Traduza: 'Quantos anos ela tem?'",
+      "correctAnswer": "how old is she"
     },
     {
       "id": 14,
       "type": "fill-blank",
-      "question": "Complete: 'He _____ Carlos' (Ele é Carlos)",
-      "correctAnswer": "is|'s"
+      "question": "Complete: 'He is _____ years old' (Ele tem 12 anos)",
+      "correctAnswer": "12|twelve"
     },
     {
       "id": 15,
       "type": "multiple-choice",
-      "question": "O que significa 'Thank you'?",
-      "options": ["Obrigado", "Por favor", "Desculpe", "Até logo"],
-      "correctAnswer": "Obrigado"
+      "question": "O que significa 'birthday'?",
+      "options": ["Aniversário", "Idade", "Ano", "Mês"],
+      "correctAnswer": "Aniversário"
     },
     {
       "id": 16,
       "type": "complete",
-      "question": "Complete com pronome: '_____ is a book' (Isto é um livro)",
-      "correctAnswer": "it"
+      "question": "Complete: 'My _____ is in June' (Meu aniversário é em junho)",
+      "correctAnswer": "birthday"
     },
     {
       "id": 17,
       "type": "fill-blank",
-      "question": "Complete: 'You _____ my friend' (Você é meu amigo)",
-      "correctAnswer": "are|'re"
+      "question": "Complete: 'We are _____ years old' (Nós temos 25 anos)",
+      "correctAnswer": "25|twenty-five"
     },
     {
       "id": 18,
       "type": "translate",
-      "question": "Traduza: 'E você?'",
-      "correctAnswer": "and you"
+      "question": "Traduza: 'Ele é jovem'",
+      "correctAnswer": "he is young|he's young"
     },
     {
       "id": 19,
       "type": "multiple-choice",
-      "question": "Qual forma contraída de 'I am'?",
-      "options": ["I'm", "I's", "Im", "I am"],
-      "correctAnswer": "I'm"
+      "question": "Como se diz o número '100' em inglês?",
+      "options": ["One hundred", "Ten", "Thousand", "Hundred one"],
+      "correctAnswer": "One hundred"
     },
     {
       "id": 20,
       "type": "fill-blank",
-      "question": "Complete: 'We _____ students' (Nós somos estudantes)",
-      "correctAnswer": "are|'re"
+      "question": "Complete: 'She is _____ years old' (Ela tem 60 anos)",
+      "correctAnswer": "60|sixty"
     }
   ],
   "tuesday": [
     {
       "id": 1,
       "type": "fill-blank",
-      "question": "Complete: '_____ to meet you' (Prazer em conhecê-lo)",
-      "correctAnswer": "nice"
+      "question": "Complete: 'I am _____ years old' (Eu tenho 27 anos)",
+      "correctAnswer": "27|twenty-seven"
     },
     {
       "id": 2,
       "type": "multiple-choice",
-      "question": "Escolha o pronome para 'Ela':",
-      "options": ["She", "He", "It", "They"],
-      "correctAnswer": "She"
+      "question": "Qual é o número '70' em inglês?",
+      "options": ["Seventy", "Seven", "Seventeen", "Seven hundred"],
+      "correctAnswer": "Seventy"
     },
     {
       "id": 3,
       "type": "translate",
-      "question": "Traduza: 'Tchau'",
-      "correctAnswer": "goodbye|bye"
+      "question": "Traduza: 'Meu aniversário'",
+      "correctAnswer": "my birthday"
     },
     {
       "id": 4,
       "type": "complete",
-      "question": "Complete a frase: 'Good _____, how are you?' (Bom dia)",
-      "correctAnswer": "morning"
+      "question": "Complete: 'How old _____ you?' (Quantos anos você tem?)",
+      "correctAnswer": "are"
     },
     {
       "id": 5,
       "type": "fill-blank",
-      "question": "Complete: 'She _____ a teacher' (Ela é professora)",
-      "correctAnswer": "is|'s"
+      "question": "Complete: 'He is _____ years old' (Ele tem 33 anos)",
+      "correctAnswer": "33|thirty-three"
     },
     {
       "id": 6,
       "type": "multiple-choice",
-      "question": "O que significa 'I'm fine'?",
-      "options": ["Estou bem", "Estou mal", "Estou cansado", "Estou com fome"],
-      "correctAnswer": "Estou bem"
+      "question": "O que significa 'old'?",
+      "options": ["Velho/Idade", "Jovem", "Novo", "Ano"],
+      "correctAnswer": "Velho/Idade"
     },
     {
       "id": 7,
       "type": "translate",
-      "question": "Traduza: 'Ele é John'",
-      "correctAnswer": "he is john|he's john"
+      "question": "Traduza: 'Eles têm dez anos'",
+      "correctAnswer": "they are ten years old|they're ten years old"
     },
     {
       "id": 8,
       "type": "fill-blank",
-      "question": "Complete: 'What's _____ name?' (Qual é seu nome?)",
-      "correctAnswer": "your"
+      "question": "Complete: 'My sister is _____ years old' (Minha irmã tem 22 anos)",
+      "correctAnswer": "22|twenty-two"
     },
     {
       "id": 9,
       "type": "multiple-choice",
-      "question": "Como se diz 'Boa noite' ao chegar?",
-      "options": ["Good evening", "Good night", "Good afternoon", "Good morning"],
-      "correctAnswer": "Good evening"
+      "question": "Como se diz '19' em inglês?",
+      "options": ["Nineteen", "Ninety", "Nine", "Ninetteen"],
+      "correctAnswer": "Nineteen"
     },
     {
       "id": 10,
       "type": "complete",
-      "question": "Complete com pronome: '_____ are friends' (Nós somos amigos)",
-      "correctAnswer": "we"
+      "question": "Complete: 'She is _____ old' (Ela tem anos)",
+      "correctAnswer": "years"
     },
     {
       "id": 11,
       "type": "fill-blank",
-      "question": "Complete: 'I _____ from Brazil' (Eu sou do Brasil)",
-      "correctAnswer": "am|'m"
+      "question": "Complete: 'They are _____ years old' (Eles têm 55 anos)",
+      "correctAnswer": "55|fifty-five"
     },
     {
       "id": 12,
       "type": "translate",
-      "question": "Traduza: 'Obrigado'",
-      "correctAnswer": "thank you|thanks"
+      "question": "Traduza: 'Quantos anos ele tem?'",
+      "correctAnswer": "how old is he"
     },
     {
       "id": 13,
       "type": "multiple-choice",
-      "question": "Qual o pronome para 'Eles/Elas'?",
-      "options": ["They", "We", "You", "It"],
-      "correctAnswer": "They"
+      "question": "O que significa 'year'?",
+      "options": ["Ano", "Idade", "Aniversário", "Mês"],
+      "correctAnswer": "Ano"
     },
     {
       "id": 14,
       "type": "fill-blank",
-      "question": "Complete: 'It _____ a pen' (Isto é uma caneta)",
-      "correctAnswer": "is|'s"
+      "question": "Complete: 'We are _____ years old' (Nós temos 45 anos)",
+      "correctAnswer": "45|forty-five"
     },
     {
       "id": 15,
       "type": "complete",
-      "question": "Complete: '_____ are you?' (Como você está?)",
-      "correctAnswer": "how"
+      "question": "Complete: 'I am twenty _____ old' (Eu tenho vinte anos)",
+      "correctAnswer": "years"
     },
     {
       "id": 16,
       "type": "translate",
-      "question": "Traduza: 'Você é meu amigo'",
-      "correctAnswer": "you are my friend|you're my friend"
+      "question": "Traduza: 'Você é jovem'",
+      "correctAnswer": "you are young|you're young"
     },
     {
       "id": 17,
       "type": "multiple-choice",
-      "question": "O que significa 'Goodbye'?",
-      "options": ["Tchau", "Olá", "Obrigado", "Desculpe"],
-      "correctAnswer": "Tchau"
+      "question": "Como se diz '80' em inglês?",
+      "options": ["Eighty", "Eight", "Eighteen", "Eight hundred"],
+      "correctAnswer": "Eighty"
     },
     {
       "id": 18,
       "type": "fill-blank",
-      "question": "Complete: 'They _____ happy' (Eles estão felizes)",
-      "correctAnswer": "are|'re"
+      "question": "Complete: 'You are _____ years old' (Você tem 35 anos)",
+      "correctAnswer": "35|thirty-five"
     },
     {
       "id": 19,
       "type": "complete",
-      "question": "Complete com pronome: '_____ is a student' (Ele é um estudante)",
-      "correctAnswer": "he"
+      "question": "Complete: 'My _____ is in December' (Meu aniversário é em dezembro)",
+      "correctAnswer": "birthday"
     },
     {
       "id": 20,
       "type": "translate",
-      "question": "Traduza: 'Prazer em conhecê-lo também'",
-      "correctAnswer": "nice to meet you too"
+      "question": "Traduza: 'Ela tem cinquenta anos'",
+      "correctAnswer": "she is fifty years old|she's fifty years old"
     }
   ],
   "wednesday": [
     {
       "id": 1,
       "type": "multiple-choice",
-      "question": "Qual é a forma contraída de 'You are'?",
-      "options": ["You're", "Your", "You's", "Youre"],
-      "correctAnswer": "You're"
+      "question": "Como se diz '14' em inglês?",
+      "options": ["Fourteen", "Forty", "Four", "Fourty"],
+      "correctAnswer": "Fourteen"
     },
     {
       "id": 2,
       "type": "fill-blank",
-      "question": "Complete: 'My name _____ Ana' (Meu nome é Ana)",
-      "correctAnswer": "is"
+      "question": "Complete: 'I am _____ years old' (Eu tenho 16 anos)",
+      "correctAnswer": "16|sixteen"
     },
     {
       "id": 3,
       "type": "translate",
-      "question": "Traduza: 'Bom dia'",
-      "correctAnswer": "good morning"
+      "question": "Traduza: 'Ele tem trinta anos'",
+      "correctAnswer": "he is thirty years old|he's thirty years old"
     },
     {
       "id": 4,
       "type": "complete",
-      "question": "Complete: 'Nice to _____ you' (Prazer em conhecê-lo)",
-      "correctAnswer": "meet"
+      "question": "Complete: 'How _____ are they?' (Quantos anos eles têm?)",
+      "correctAnswer": "old"
     },
     {
       "id": 5,
       "type": "multiple-choice",
-      "question": "O pronome para 'Isto/Isso' (coisa) é:",
-      "options": ["It", "He", "She", "They"],
-      "correctAnswer": "It"
+      "question": "Qual é o número '90' em inglês?",
+      "options": ["Ninety", "Nine", "Nineteen", "Nine hundred"],
+      "correctAnswer": "Ninety"
     },
     {
       "id": 6,
       "type": "fill-blank",
-      "question": "Complete: 'We _____ learning English' (Estamos aprendendo inglês)",
-      "correctAnswer": "are|'re"
+      "question": "Complete: 'She is _____ years old' (Ela tem 44 anos)",
+      "correctAnswer": "44|forty-four"
     },
     {
       "id": 7,
       "type": "translate",
-      "question": "Traduza: 'Como você está?'",
-      "correctAnswer": "how are you"
+      "question": "Traduza: 'Nós temos sessenta anos'",
+      "correctAnswer": "we are sixty years old|we're sixty years old"
     },
     {
       "id": 8,
       "type": "complete",
-      "question": "Complete com pronome: '_____ is very nice' (Ela é muito legal)",
-      "correctAnswer": "she"
+      "question": "Complete: 'They are _____ old' (Eles têm anos)",
+      "correctAnswer": "years"
     },
     {
       "id": 9,
       "type": "multiple-choice",
-      "question": "Como se diz 'Olá' informalmente?",
-      "options": ["Hi", "Hello", "Hey", "Todas as anteriores"],
-      "correctAnswer": "Todas as anteriores"
+      "question": "O que significa 'How old are you?'",
+      "options": ["Quantos anos você tem?", "Como você está?", "Qual é seu nome?", "Onde você mora?"],
+      "correctAnswer": "Quantos anos você tem?"
     },
     {
       "id": 10,
       "type": "fill-blank",
-      "question": "Complete: 'I'm _____, thank you' (Estou bem, obrigado)",
-      "correctAnswer": "fine|good|great"
+      "question": "Complete: 'My father is _____ years old' (Meu pai tem 50 anos)",
+      "correctAnswer": "50|fifty"
     },
     {
       "id": 11,
       "type": "translate",
-      "question": "Traduza: 'Eles são professores'",
-      "correctAnswer": "they are teachers|they're teachers"
+      "question": "Traduza: 'Ela é velha'",
+      "correctAnswer": "she is old|she's old"
     },
     {
       "id": 12,
       "type": "complete",
-      "question": "Complete: 'Good _____' (Boa tarde)",
-      "correctAnswer": "afternoon"
+      "question": "Complete: 'I am _____ years old' (preencha com sua idade)",
+      "correctAnswer": "number"
     },
     {
       "id": 13,
       "type": "multiple-choice",
-      "question": "Qual a tradução de 'What's your name?'",
-      "options": ["Qual é seu nome?", "Como você está?", "Onde você mora?", "Quantos anos você tem?"],
-      "correctAnswer": "Qual é seu nome?"
+      "question": "Como se diz '11' em inglês?",
+      "options": ["Eleven", "One", "Twelve", "Ten"],
+      "correctAnswer": "Eleven"
     },
     {
       "id": 14,
       "type": "fill-blank",
-      "question": "Complete: 'He _____ from São Paulo' (Ele é de São Paulo)",
-      "correctAnswer": "is|'s"
+      "question": "Complete: 'He is _____ years old' (Ele tem 28 anos)",
+      "correctAnswer": "28|twenty-eight"
     },
     {
       "id": 15,
       "type": "translate",
-      "question": "Traduza: 'Nós somos felizes'",
-      "correctAnswer": "we are happy|we're happy"
+      "question": "Traduza: 'Meu aniversário é em maio'",
+      "correctAnswer": "my birthday is in may"
     },
     {
       "id": 16,
       "type": "complete",
-      "question": "Complete: '_____ you!' (Obrigado!)",
-      "correctAnswer": "thank"
+      "question": "Complete: 'My mother is _____ years old' (Minha mãe tem 48 anos)",
+      "correctAnswer": "48|forty-eight"
     },
     {
       "id": 17,
       "type": "multiple-choice",
-      "question": "Forma contraída de 'She is':",
-      "options": ["She's", "Shes", "She is", "Sh's"],
-      "correctAnswer": "She's"
+      "question": "Qual é o número '20' em inglês?",
+      "options": ["Twenty", "Twelve", "Two", "Twoty"],
+      "correctAnswer": "Twenty"
     },
     {
       "id": 18,
       "type": "fill-blank",
-      "question": "Complete: 'You _____ a good friend' (Você é um bom amigo)",
-      "correctAnswer": "are|'re"
+      "question": "Complete: 'You are _____ years old' (Você tem 19 anos)",
+      "correctAnswer": "19|nineteen"
     },
     {
       "id": 19,
       "type": "translate",
-      "question": "Traduza: 'Boa noite' (despedida)",
-      "correctAnswer": "good night"
+      "question": "Traduza: 'Eles são jovens'",
+      "correctAnswer": "they are young|they're young"
     },
     {
       "id": 20,
       "type": "complete",
-      "question": "Complete com pronome: '_____ are students' (Eles são estudantes)",
-      "correctAnswer": "they"
+      "question": "Complete: 'We are _____ old' (Nós temos anos)",
+      "correctAnswer": "years"
     }
   ],
   "thursday": [
     {
       "id": 1,
       "type": "translate",
-      "question": "Traduza: 'Ela está feliz'",
-      "correctAnswer": "she is happy|she's happy"
+      "question": "Traduza: 'Eu tenho oito anos'",
+      "correctAnswer": "i am eight years old|i'm eight years old"
     },
     {
       "id": 2,
       "type": "multiple-choice",
-      "question": "O que significa 'And you?'",
-      "options": ["E você?", "Você está bem?", "Como vai?", "Obrigado"],
-      "correctAnswer": "E você?"
+      "question": "Como se diz '12' em inglês?",
+      "options": ["Twelve", "Twenty", "Two", "Twelfth"],
+      "correctAnswer": "Twelve"
     },
     {
       "id": 3,
       "type": "fill-blank",
-      "question": "Complete: 'I _____ a student' (Eu sou estudante)",
-      "correctAnswer": "am|'m"
+      "question": "Complete: 'She is _____ years old' (Ela tem 17 anos)",
+      "correctAnswer": "17|seventeen"
     },
     {
       "id": 4,
       "type": "complete",
-      "question": "Complete: 'What _____ your name?' (Qual é seu nome?)",
-      "correctAnswer": "is|'s"
+      "question": "Complete: 'How old _____ she?' (Quantos anos ela tem?)",
+      "correctAnswer": "is"
     },
     {
       "id": 5,
       "type": "translate",
-      "question": "Traduza: 'Boa tarde'",
-      "correctAnswer": "good afternoon"
+      "question": "Traduza: 'Você tem quarenta anos'",
+      "correctAnswer": "you are forty years old|you're forty years old"
     },
     {
       "id": 6,
       "type": "multiple-choice",
-      "question": "Pronome para 'Você' em inglês:",
-      "options": ["You", "Your", "Yours", "You're"],
-      "correctAnswer": "You"
+      "question": "O que significa 'age'?",
+      "options": ["Idade", "Ano", "Aniversário", "Número"],
+      "correctAnswer": "Idade"
     },
     {
       "id": 7,
       "type": "fill-blank",
-      "question": "Complete: 'They _____ from Brazil' (Eles são do Brasil)",
-      "correctAnswer": "are|'re"
+      "question": "Complete: 'They are _____ years old' (Eles têm 32 anos)",
+      "correctAnswer": "32|thirty-two"
     },
     {
       "id": 8,
       "type": "complete",
-      "question": "Complete: 'Good _____, class!' (Bom dia, turma!)",
-      "correctAnswer": "morning"
+      "question": "Complete: 'My _____ is young' (Meu irmão é jovem)",
+      "correctAnswer": "brother|sister|friend"
     },
     {
       "id": 9,
       "type": "translate",
-      "question": "Traduza: 'Ele é meu amigo'",
-      "correctAnswer": "he is my friend|he's my friend"
+      "question": "Traduza: 'Ele tem noventa anos'",
+      "correctAnswer": "he is ninety years old|he's ninety years old"
     },
     {
       "id": 10,
       "type": "multiple-choice",
-      "question": "Como se diz 'Prazer em conhecê-lo'?",
-      "options": ["Nice to meet you", "How are you", "Thank you", "See you later"],
-      "correctAnswer": "Nice to meet you"
+      "question": "Como se diz '15' em inglês?",
+      "options": ["Fifteen", "Fifty", "Five", "Fiveteen"],
+      "correctAnswer": "Fifteen"
     },
     {
       "id": 11,
       "type": "fill-blank",
-      "question": "Complete: 'We _____ happy' (Nós estamos felizes)",
-      "correctAnswer": "are|'re"
+      "question": "Complete: 'We are _____ years old' (Nós temos 38 anos)",
+      "correctAnswer": "38|thirty-eight"
     },
     {
       "id": 12,
       "type": "translate",
-      "question": "Traduza: 'Isto é um livro'",
-      "correctAnswer": "it is a book|it's a book"
+      "question": "Traduza: 'Ela tem vinte e cinco anos'",
+      "correctAnswer": "she is twenty-five years old|she's twenty-five years old"
     },
     {
       "id": 13,
       "type": "complete",
-      "question": "Complete com pronome: '_____ am from Rio' (Eu sou do Rio)",
-      "correctAnswer": "i"
+      "question": "Complete: 'I am _____ years old' (Eu tenho 7 anos)",
+      "correctAnswer": "7|seven"
     },
     {
       "id": 14,
       "type": "multiple-choice",
-      "question": "Forma contraída de 'They are':",
-      "options": ["They're", "Their", "Theyre", "They is"],
-      "correctAnswer": "They're"
+      "question": "Qual é o número '60' em inglês?",
+      "options": ["Sixty", "Six", "Sixteen", "Sixteen hundred"],
+      "correctAnswer": "Sixty"
     },
     {
       "id": 15,
       "type": "fill-blank",
-      "question": "Complete: 'She _____ my teacher' (Ela é minha professora)",
-      "correctAnswer": "is|'s"
+      "question": "Complete: 'He is _____ years old' (Ele tem 41 anos)",
+      "correctAnswer": "41|forty-one"
     },
     {
       "id": 16,
       "type": "translate",
-      "question": "Traduza: 'Você é legal'",
-      "correctAnswer": "you are nice|you're nice"
+      "question": "Traduza: 'Nós somos velhos'",
+      "correctAnswer": "we are old|we're old"
     },
     {
       "id": 17,
       "type": "complete",
-      "question": "Complete: 'How _____ you?' (Como você está?)",
-      "correctAnswer": "are"
+      "question": "Complete: 'She is _____ old' (Ela tem anos)",
+      "correctAnswer": "years"
     },
     {
       "id": 18,
       "type": "multiple-choice",
-      "question": "O que significa 'I'm fine'?",
-      "options": ["Estou bem", "Estou ótimo", "Estou mal", "Estou cansado"],
-      "correctAnswer": "Estou bem"
+      "question": "Como se pergunta 'Quantos anos ele tem?'",
+      "options": ["How old is he?", "What's his age?", "How is he?", "What's his name?"],
+      "correctAnswer": "How old is he?"
     },
     {
       "id": 19,
       "type": "fill-blank",
-      "question": "Complete: 'It _____ a cat' (Isto é um gato)",
-      "correctAnswer": "is|'s"
+      "question": "Complete: 'You are _____ years old' (Você tem 24 anos)",
+      "correctAnswer": "24|twenty-four"
     },
     {
       "id": 20,
       "type": "translate",
-      "question": "Traduza: 'Tchau'",
-      "correctAnswer": "goodbye|bye"
+      "question": "Traduza: 'Meu aniversário é em julho'",
+      "correctAnswer": "my birthday is in july"
     }
   ],
   "friday": [
     {
       "id": 1,
       "type": "complete",
-      "question": "Complete: 'My _____ is Maria' (Meu nome é Maria)",
-      "correctAnswer": "name"
+      "question": "Complete: 'I am _____ years old' (Eu tenho 20 anos)",
+      "correctAnswer": "20|twenty"
     },
     {
       "id": 2,
       "type": "multiple-choice",
-      "question": "Como se diz 'Boa noite' ao chegar?",
-      "options": ["Good evening", "Good night", "Good afternoon", "Good day"],
-      "correctAnswer": "Good evening"
+      "question": "Como se diz '40' em inglês?",
+      "options": ["Forty", "Fourteen", "Four", "Four hundred"],
+      "correctAnswer": "Forty"
     },
     {
       "id": 3,
       "type": "translate",
-      "question": "Traduza: 'Eu estou bem, obrigado'",
-      "correctAnswer": "i am fine thank you|i'm fine thank you"
+      "question": "Traduza: 'Ela tem doze anos'",
+      "correctAnswer": "she is twelve years old|she's twelve years old"
     },
     {
       "id": 4,
       "type": "fill-blank",
-      "question": "Complete: 'You _____ nice' (Você é legal)",
-      "correctAnswer": "are|'re"
+      "question": "Complete: 'They are _____ years old' (Eles têm 67 anos)",
+      "correctAnswer": "67|sixty-seven"
     },
     {
       "id": 5,
       "type": "complete",
-      "question": "Complete com pronome: '_____ are teachers' (Nós somos professores)",
-      "correctAnswer": "we"
+      "question": "Complete: 'How _____ is your mother?' (Quantos anos tem sua mãe?)",
+      "correctAnswer": "old"
     },
     {
       "id": 6,
       "type": "multiple-choice",
-      "question": "Forma contraída de 'He is':",
-      "options": ["He's", "Hes", "His", "He"],
-      "correctAnswer": "He's"
+      "question": "O que significa 'young'?",
+      "options": ["Jovem", "Velho", "Idade", "Ano"],
+      "correctAnswer": "Jovem"
     },
     {
       "id": 7,
       "type": "translate",
-      "question": "Traduza: 'Eles estão aprendendo inglês'",
-      "correctAnswer": "they are learning english|they're learning english"
+      "question": "Traduza: 'Eu tenho setenta anos'",
+      "correctAnswer": "i am seventy years old|i'm seventy years old"
     },
     {
       "id": 8,
       "type": "fill-blank",
-      "question": "Complete: 'I'm _____, and you?' (Estou bem, e você?)",
-      "correctAnswer": "fine|good|great"
+      "question": "Complete: 'He is _____ years old' (Ele tem 29 anos)",
+      "correctAnswer": "29|twenty-nine"
     },
     {
       "id": 9,
       "type": "complete",
-      "question": "Complete: '_____ to meet you too' (Prazer em conhecê-lo também)",
-      "correctAnswer": "nice"
+      "question": "Complete: 'When is your _____?' (Quando é seu aniversário?)",
+      "correctAnswer": "birthday"
     },
     {
       "id": 10,
       "type": "multiple-choice",
-      "question": "O que significa 'Hello'?",
-      "options": ["Olá", "Tchau", "Obrigado", "Por favor"],
-      "correctAnswer": "Olá"
+      "question": "Como se diz '18' em inglês?",
+      "options": ["Eighteen", "Eighty", "Eight", "Eightteen"],
+      "correctAnswer": "Eighteen"
     },
     {
       "id": 11,
       "type": "translate",
-      "question": "Traduza: 'Ela é Ana'",
-      "correctAnswer": "she is ana|she's ana"
+      "question": "Traduza: 'Ele é velho'",
+      "correctAnswer": "he is old|he's old"
     },
     {
       "id": 12,
       "type": "fill-blank",
-      "question": "Complete: 'He _____ happy' (Ele está feliz)",
-      "correctAnswer": "is|'s"
+      "question": "Complete: 'We are _____ years old' (Nós temos 53 anos)",
+      "correctAnswer": "53|fifty-three"
     },
     {
       "id": 13,
       "type": "complete",
-      "question": "Complete: 'Good _____!' (Boa noite - despedida)",
-      "correctAnswer": "night"
+      "question": "Complete: 'My brother is _____ years old' (Meu irmão tem 11 anos)",
+      "correctAnswer": "11|eleven"
     },
     {
       "id": 14,
       "type": "multiple-choice",
-      "question": "Pronome para 'Ele':",
-      "options": ["He", "She", "It", "They"],
-      "correctAnswer": "He"
+      "question": "Qual é o número '30' em inglês?",
+      "options": ["Thirty", "Thirteen", "Three", "Threety"],
+      "correctAnswer": "Thirty"
     },
     {
       "id": 15,
       "type": "translate",
-      "question": "Traduza: 'Nós somos amigos'",
-      "correctAnswer": "we are friends|we're friends"
+      "question": "Traduza: 'Você tem trinta e três anos'",
+      "correctAnswer": "you are thirty-three years old|you're thirty-three years old"
     },
     {
       "id": 16,
       "type": "fill-blank",
-      "question": "Complete: 'They _____ students' (Eles são estudantes)",
-      "correctAnswer": "are|'re"
+      "question": "Complete: 'She is _____ years old' (Ela tem 75 anos)",
+      "correctAnswer": "75|seventy-five"
     },
     {
       "id": 17,
       "type": "complete",
-      "question": "Complete: 'Thank _____' (Obrigado)",
-      "correctAnswer": "you"
+      "question": "Complete: 'I am twenty-one years _____' (Eu tenho 21 anos)",
+      "correctAnswer": "old"
     },
     {
       "id": 18,
       "type": "multiple-choice",
-      "question": "Forma contraída de 'We are':",
-      "options": ["We're", "Were", "We is", "Weare"],
-      "correctAnswer": "We're"
+      "question": "Como se diz 'aniversário' em inglês?",
+      "options": ["Birthday", "Age", "Year", "Day"],
+      "correctAnswer": "Birthday"
     },
     {
       "id": 19,
       "type": "translate",
-      "question": "Traduza: 'Bom dia, como você está?'",
-      "correctAnswer": "good morning how are you|good morning, how are you"
+      "question": "Traduza: 'Quantos anos nós temos?'",
+      "correctAnswer": "how old are we"
     },
     {
       "id": 20,
       "type": "fill-blank",
-      "question": "Complete: 'It _____ nice' (Isto é legal)",
-      "correctAnswer": "is|'s"
+      "question": "Complete: 'You are _____ years old' (Você tem 46 anos)",
+      "correctAnswer": "46|forty-six"
     }
   ]
 }
