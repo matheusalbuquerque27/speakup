@@ -595,8 +595,8 @@ function showVideos() {
         videos = [
             { title: '📚 Seed - Lesson 01', url: 'https://www.youtube.com/embed/bmWPdq6jw3Q' },
             { title: '📚 Seed - Lesson 02', url: 'https://www.youtube.com/embed/Sp_9i-j3Ryw' },
-            { title: '📚 Seed - Lesson 02(Extra)', url: 'https://www.youtube.com/watch?v=ihadFWLnAs8' },
-            { title: '📚 Seed - Lesson 03', url: 'https://www.youtube.com/watch?v=ED1K6BJ8PoU' },
+            { title: '📚 Seed - Lesson 02(Extra)', url: 'https://www.youtube.com/embed/ED1K6BJ8PoU?si=noBJM_2NaPzbOaTM' },
+            { title: '📚 Seed - Lesson 03', url: 'https://www.youtube.com/embed/ihadFWLnAs8?si=-Q583abdczTiNkAp' },
 
         ];
     } else if (currentLevel === 'root') {
