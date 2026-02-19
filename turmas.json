@@ -8,5 +8,10 @@
     "code": "root02",
     "name": "Root - Lesson 01",
     "description": "Basic Conversations"
+  },
+  "leaf": {
+    "code": "leaf03",
+    "name": "Leaf - Lesson 01",
+    "description": "Intermediate Conversations"
   }
 }

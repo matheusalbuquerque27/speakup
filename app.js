@@ -108,7 +108,13 @@ async function selectLevel(level) {
 async function loadExercises() {
     try {
         // Determinar arquivo baseado no nível
-        const exerciseFile = currentLevel === 'root' ? 'exercises-root.json' : 'exercises.json';
+        let exerciseFile = 'exercises.json'; // padrão para seed
+        
+        if (currentLevel === 'root') {
+            exerciseFile = 'exercises-root.json';
+        } else if (currentLevel === 'leaf') {
+            exerciseFile = 'exercises-leaf.json';
+        }
         
         // Tentar diferentes caminhos para compatibilidade com GitHub Pages
         const paths = [
@@ -603,7 +609,13 @@ function showVideos() {
         // Aqui você pode adicionar vídeos do Root no futuro
         videos = [
             { title: '📚 Root - Lesson 01', url: 'https://www.youtube.com/embed/6DArC_SJ7Uw?si=C2ASh0RrQu2GWE-8' },
-            { title: '📚 Root - Lesson 02', url: 'https://www.youtube.com/embed/4zqE4uznWxk?si=8JaDLu53E_ju0aa0' }
+            { title: '📚 Root - Lesson 02', url: 'https://www.youtube.com/embed/4zqE4uznWxk?si=8JaDLu53E_ju0aa0' },
+            { title: '📚 Root - Lesson 03', url: 'https://www.youtube.com/embed/hf_d0Mk6T_0?si=twOJYtRxyJvu1jMX' },
+        ];
+    } else if (currentLevel === 'leaf') {
+        // Vídeos do Leaf - adicione os vídeos quando estiverem disponíveis
+        videos = [
+            // { title: '📚 Leaf - Lesson 01', url: 'https://www.youtube.com/embed/VIDEO_ID' },
         ];
     }
     
@@ -700,6 +712,18 @@ const podcastsList = {
             level: 'root'
         }
         // Adicione mais podcasts do Root aqui
+    ],
+    leaf: [
+        // Podcasts do Leaf - adicione quando estiverem disponíveis
+        // {
+        //     id: 1,
+        //     title: 'Episode 01 - Advanced Conversations',
+        //     description: 'Practice advanced conversation skills and expressions.',
+        //     audioFile: 'aulas/Leaf/Podcasts/podcast_episode01.wav',
+        //     scriptFile: 'aulas/Leaf/Podcasts/podcast_audioscript.md',
+        //     duration: '6:00',
+        //     level: 'leaf'
+        // }
     ]
 };
 
@@ -734,6 +758,8 @@ function showPodcasts() {
         podcasts = podcastsList.seed || [];
     } else if (currentLevel === 'root') {
         podcasts = podcastsList.root || [];
+    } else if (currentLevel === 'leaf') {
+        podcasts = podcastsList.leaf || [];
     }
     
     // Verificar se há podcasts disponíveis
