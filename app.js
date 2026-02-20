@@ -615,7 +615,7 @@ function showVideos() {
     } else if (currentLevel === 'leaf') {
         // Vídeos do Leaf - adicione os vídeos quando estiverem disponíveis
         videos = [
-            // { title: '📚 Leaf - Lesson 01', url: 'https://www.youtube.com/embed/VIDEO_ID' },
+            { title: '📚 Leaf - Lesson 01', url: 'https://www.youtube.com/embed/4zeyh5wB2ic?si=2JTLi98zbPiU8QW3' },
         ];
     }
     
